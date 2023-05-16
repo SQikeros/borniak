@@ -13,7 +13,7 @@ class MealsCard extends StatelessWidget {
     return GridView.count(
         childAspectRatio: 0.68,
         crossAxisCount: 2,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         children: [
           for (int i = 1; i < 8; i++)
@@ -35,7 +35,7 @@ class MealsCard extends StatelessWidget {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -46,39 +46,35 @@ class MealsCard extends StatelessWidget {
                           height: 150,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Wędzony kurczak',
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 4),
-                      Text(
+                      const SizedBox(height: 4),
+                      const Text(
                         'Tradycyjne wędzenie',
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
-                        height: 6,
-                      ),
+                      const SizedBox(height: 6),
                       RatingBar.builder(
                         initialRating: 4,
                         minRating: 1,
                         direction: Axis.horizontal,
                         itemCount: 5,
                         itemSize: 16,
-                        itemPadding: EdgeInsets.symmetric(horizontal: 4),
-                        itemBuilder: (context, _) => Icon(
+                        itemPadding: const EdgeInsets.symmetric(horizontal: 4),
+                        itemBuilder: (context, _) => const Icon(
                           Icons.star,
                           color: Colors.teal,
                         ),
                         onRatingUpdate: (index) {},
                       ),
-                      SizedBox(
-                        height: 6,
-                      ),
+                      const SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             '\$10',
                             style: TextStyle(
@@ -140,13 +136,13 @@ class SecondMealsCard extends StatelessWidget {
                           'assets/logo_borniak.svg',
                           width: MediaQuery.of(context).size.width / 3,
                         ),
-                        SizedBox(width: 12),
+                        const SizedBox(width: 12),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Row(
-                                children: [
+                                children: const [
                                   Text(
                                     'Prosta w przygotowaniu',
                                     style: TextStyle(
@@ -156,10 +152,10 @@ class SecondMealsCard extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 4),
-                              BodyLarge('Wędzona sielawa'),
-                              SizedBox(height: 4),
-                              BodySmall('perfekcja sama w sobie'),
+                              const SizedBox(height: 4),
+                              const BodyLarge('Wędzona sielawa'),
+                              const SizedBox(height: 4),
+                              const BodySmall('perfekcja sama w sobie'),
                             ],
                           ),
                         )

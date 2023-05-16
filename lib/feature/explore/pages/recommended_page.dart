@@ -1,3 +1,4 @@
+import 'package:borniak/feature/articles/pages/articles_page.dart';
 import 'package:flutter/material.dart';
 
 class RecommendedPage extends StatelessWidget {
@@ -82,60 +83,61 @@ class RecommendedPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 14, horizontal: 12),
-                          child: InkWell(
-                            child: Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Row(
-                                      children: const [
-                                        Text(
-                                          '10,00 zł',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.teal,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 220),
-                                          child: Icon(
-                                            Icons.favorite_border,
-                                            color: Colors.red,
-                                            size: 32,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Image.asset(
-                                      'assets/wiorki.jpeg',
-                                      height: 180,
-                                    ),
-                                    const Text(
-                                      'Zrębki Wędzarnicze - Brzoza',
-                                      style: TextStyle(
-                                          color: Colors.black,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const ArticlesPage(),
+                              ));
+                            },
+                            child: InkWell(
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Text(
+                                        '10,00 zł',
+                                        style: TextStyle(
                                           fontSize: 16,
-                                          fontWeight: FontWeight.bold
+                                          color: Colors.teal,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                    const Text(
-                                      'Zrębki z brzozy sprawdzają się w szczególności',
-                                      style: TextStyle(
+                                      Icon(
+                                        Icons.favorite_border,
+                                        color: Colors.red,
+                                        size: 32,
+                                      ),
+                                    ],
+                                  ),
+                                  Image.asset(
+                                    'assets/wiorki.jpeg',
+                                    height: 180,
+                                  ),
+                                  const Text(
+                                    'Zrębki Wędzarnicze - Brzoza',
+                                    style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 12,
-                                      ),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold
                                     ),
-                                    const Text(
-                                      'do wędzenia drobiu, wieprzowiny oraz ryb np. łososia.',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 12,
-                                      ),
+                                  ),
+                                  const Text(
+                                    'Zrębki z brzozy sprawdzają się w szczególności',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12,
                                     ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                  const Text(
+                                    'do wędzenia drobiu, wieprzowiny oraz ryb np. łososia.',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
