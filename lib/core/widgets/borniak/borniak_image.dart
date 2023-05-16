@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BorniakAvatar extends StatelessWidget {
-  final String? avatarUrl;
-  final double? radius;
+  final VoidCallback? onPressed;
 
-  const BorniakAvatar({Key? key, required this.avatarUrl, this.radius}) : super(key: key);
+  const BorniakAvatar({Key? key, this.onPressed,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(100),
-      child: SvgPicture.asset(
-        'assets/logo_borniak.svg',
+    return CircleAvatar(
+      radius: 62,
+      backgroundColor: Colors.teal,
+      child: CircleAvatar(
+        radius: 60,
+        backgroundColor: Colors.teal.shade100,
+        child: const Icon(Icons.add, size: 32, color: Colors.teal,),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:borniak/core/widgets/texts/texts.dart';
 import 'package:borniak/feature/Explore/pages/explore_page.dart';
+import 'package:borniak/feature/profile/pages/update_profile_page.dart';
 import 'package:borniak/feature/settings/privacy_settings_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,83 +16,84 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-           slivers: [
-             SliverAppBar(
-               backgroundColor: Colors.white,
-               expandedHeight: 250,
-               pinned: false,
-               floating: false,
-               snap: false,
-               flexibleSpace: FlexibleSpaceBar(
-                 background: ProfileView(),
-               ),
-             ),
-             SliverToBoxAdapter(
-               child: Padding(
-                 padding: EdgeInsets.all(16),
-                 child: ClipRRect(
-                   borderRadius: BorderRadius.circular(20),
-                   child: Container(
-                     height: 340,
-                     color: Colors.teal.shade100,
-                     child: ListView(
-                       children: [
-                         ListTile(
-                           title: Text('Preferencje'),
-                           trailing: Icon(Icons.arrow_forward_ios),
-                           leading: Icon(Icons.room_preferences),
-                           onTap: () {
-                             Navigator.of(context).push(MaterialPageRoute(
-                               builder: (context) => PrivacyPage(),
-                             ));
-                           },
-                         ),
-                         ListTile(
-                           title: Text('Moje urządzenia'),
-                           trailing: Icon(Icons.arrow_forward_ios),
-                           leading: Icon(Icons.devices),
-                           onTap: () {
-                             Navigator.of(context).push(MaterialPageRoute(
-                               builder: (context) => PrivacyPage(),
-                             ));
-                           },
-                         ),
-                         ListTile(
-                           title: Text('Zakupione'),
-                           trailing: Icon(Icons.arrow_forward_ios),
-                           leading: Icon(Icons.sell),
-                           onTap: () {
-                             Navigator.of(context).push(MaterialPageRoute(
-                               builder: (context) => PrivacyPage(),
-                             ));
-                           },
-                         ),ListTile(
-                           title: Text('Polityka prywatności'),
-                           trailing: Icon(Icons.arrow_forward_ios),
-                           leading: Icon(Icons.privacy_tip),
-                           onTap: () {
-                             Navigator.of(context).push(MaterialPageRoute(
-                               builder: (context) => PrivacyPage(),
-                             ));
-                           },
-                         ),
-                         ListTile(
-                           title: Text('Zmiana kraju i języka'),
-                           trailing: Icon(Icons.arrow_forward_ios),
-                           leading: Icon(Icons.language),
-                           onTap: () {
-                             Navigator.of(context).push(MaterialPageRoute(
-                               builder: (context) => PrivacyPage(),
-                             ));
-                           },
-                         )
-                       ],
-                     ),
-                   ),
-                 ),
-               ),
-             )
-           ],
+        slivers: [
+          const SliverAppBar(
+            backgroundColor: Colors.white,
+            expandedHeight: 250,
+            pinned: false,
+            floating: false,
+            snap: false,
+            flexibleSpace: FlexibleSpaceBar(
+              background: ProfileView(),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 340,
+                  color: Colors.teal.shade100,
+                  child: ListView(
+                    children: [
+                      ListTile(
+                        title: const Text('Preferencje'),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        leading: const Icon(Icons.room_preferences),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const PrivacyPage(),
+                          ));
+                        },
+                      ),
+                      ListTile(
+                        title: const Text('Moje urządzenia'),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        leading: const Icon(Icons.devices),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const PrivacyPage(),
+                          ));
+                        },
+                      ),
+                      ListTile(
+                        title: const Text('Zakupione'),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        leading: const Icon(Icons.sell),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const PrivacyPage(),
+                          ));
+                        },
+                      ),
+                      ListTile(
+                        title: const Text('Polityka prywatności'),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        leading: const Icon(Icons.privacy_tip),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const PrivacyPage(),
+                          ));
+                        },
+                      ),
+                      ListTile(
+                        title: const Text('Zmiana kraju i języka'),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        leading: const Icon(Icons.language),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const PrivacyPage(),
+                          ));
+                        },
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -99,8 +101,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -125,10 +125,16 @@ class ProfileView extends StatelessWidget {
               ),
             ),
             Positioned(
-                top: 40,
-                right: 16,
-                child: Icon(Icons.edit)
-            ),
+                top: 32,
+                right: 8,
+                child: IconButton(
+                  icon: const Icon(Icons.edit),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const UpdateProfilePage(),
+                    ));
+                  },
+                )),
             Positioned(
               top: 100,
               child: CircleAvatar(
@@ -137,15 +143,33 @@ class ProfileView extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 60,
                   backgroundColor: Colors.teal.shade100,
-                  child: Icon(Icons.add, size: 32, color: Colors.teal,),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.add,
+                      size: 32,
+                      color: Colors.teal,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const UpdateProfilePage(),
+                      ));
+                    },
+                  ),
                 ),
               ),
             ),
             Positioned(
               top: 240,
-              child: TitleLarge(
-                'Dodaj swoję imię',
-                textAlign: TextAlign.center,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const UpdateProfilePage(),
+                  ));
+                },
+                child: const TitleLarge(
+                  'Dodaj swoję imię',
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ],
@@ -153,5 +177,4 @@ class ProfileView extends StatelessWidget {
       ],
     );
   }
-
 }
