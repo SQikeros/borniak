@@ -1,6 +1,6 @@
-import 'package:borniak/feature/search/widgtes/basket_view.dart';
-import 'package:borniak/feature/search/widgtes/how_long.dart';
-import 'package:borniak/feature/search/widgtes/information_view.dart';
+import 'package:borniak/feature/articles/widgets/basket_view.dart';
+import 'package:borniak/feature/articles/widgets/how_long.dart';
+import 'package:borniak/feature/articles/widgets/information_view.dart';
 import 'package:flutter/material.dart';
 
 class ArticlesPage extends StatelessWidget {
