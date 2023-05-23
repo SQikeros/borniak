@@ -3,6 +3,7 @@ import 'package:borniak/feature/Profile/pages/profile_page.dart';
 import 'package:borniak/feature/Search/pages/search_page.dart';
 import 'package:borniak/feature/favorites/pages/favorites_page.dart';
 import 'package:borniak/feature/profile/pages/update_profile_page.dart';
+import 'package:borniak/feature/shop/pages/shopping_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -19,8 +20,8 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     ExplorePage(),
-    FavoritesPage(),
     SearchPage(),
+    ShoppingPage(),
     ProfilePage(),
   ];
 
@@ -54,12 +55,12 @@ class _HomePageState extends State<HomePage> {
                 text: 'Odkrywaj',
               ),
               GButton(
-                icon: Icons.favorite_border,
-                text: 'Ulubione',
-              ),
-              GButton(
                 icon: Icons.search,
                 text: 'Szukaj',
+              ),
+              GButton(
+                icon: Icons.shopping_cart_outlined,
+                text: 'Zakupy',
               ),
               GButton(
                 icon: Icons.person,

@@ -1,12 +1,11 @@
-import 'package:borniak/core/widgets/borniak/borniak_card.dart';
-import 'package:borniak/core/widgets/borniak/borniak_image.dart';
 import 'package:borniak/core/widgets/texts/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MealsCard extends StatelessWidget {
-  const MealsCard({Key? key}) : super(key: key);
+  const MealsCard({super.key});
+
 
   @override
   Widget build(BuildContext context) {

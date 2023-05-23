@@ -1,4 +1,5 @@
-import 'package:borniak/feature/articles/pages/articles_page.dart';
+
+import 'package:borniak/feature/product/pages/product_page.dart';
 import 'package:flutter/material.dart';
 
 class RecommendedPage extends StatelessWidget {

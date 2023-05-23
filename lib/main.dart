@@ -1,11 +1,12 @@
 import 'package:borniak/feature/home/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(const GetMaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -1,5 +1,6 @@
 import 'package:borniak/feature/explore/pages/recommended_page.dart';
 import 'package:borniak/feature/meals/widgets/meals_card.dart';
+import 'package:borniak/feature/product/widgets/catalog_products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -35,7 +36,7 @@ class FavoritesPageBody extends State<FavoritesPage> {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             CustomScrollView(
               slivers: [
@@ -45,14 +46,11 @@ class FavoritesPageBody extends State<FavoritesPage> {
                 ),)
               ],
             ),
-            CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  child: MealsCard(),
-                ),)
+            Column(
+              children: [
+                CatalogProducts()
               ],
-            ),
+            )
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:borniak/core/widgets/texts/texts.dart';
 import 'package:borniak/feature/Explore/pages/explore_page.dart';
+import 'package:borniak/feature/favorites/pages/favorites_page.dart';
 import 'package:borniak/feature/profile/pages/update_profile_page.dart';
 import 'package:borniak/feature/settings/privacy_settings_page.dart';
 import 'package:flutter/material.dart';
@@ -58,12 +59,12 @@ class _ProfilePageState extends State<ProfilePage> {
                         },
                       ),
                       ListTile(
-                        title: const Text('Zakupione'),
+                        title: const Text('Ulubione'),
                         trailing: const Icon(Icons.arrow_forward_ios),
-                        leading: const Icon(Icons.sell),
+                        leading: const Icon(Icons.favorite_border),
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const PrivacyPage(),
+                            builder: (context) => const FavoritesPage(),
                           ));
                         },
                       ),
