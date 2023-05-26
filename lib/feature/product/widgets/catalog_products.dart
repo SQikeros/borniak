@@ -135,3 +135,90 @@ class CatalogProductCard extends StatelessWidget {
     );
   }
 }
+
+
+class CatalogProductCard2 extends StatelessWidget {
+  final int index;
+
+  const CatalogProductCard2({
+    Key? key,
+    required this.index,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => MealsPage(index: index),
+          ));
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Container(
+              margin: EdgeInsets.zero,
+              alignment: Alignment.center,
+              child: Image.asset(
+                Product.products[index].imageUrl,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
+              child: Text(
+                Product.products[index].name,
+                style: const TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 4),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                'Tradycyjne wędzenie',
+                style: TextStyle(
+                    fontSize: 12, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 6),
+            RatingBar.builder(
+              initialRating: 4,
+              minRating: 1,
+              direction: Axis.horizontal,
+              itemCount: 5,
+              itemSize: 16,
+              itemPadding: const EdgeInsets.symmetric(horizontal: 4),
+              itemBuilder: (context, _) => const Icon(
+                Icons.star,
+                color: Colors.teal,
+              ),
+              onRatingUpdate: (index) {},
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${Product.products[index].price}',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Icon(
+                    Icons.favorite_border,
+                    color: Colors.red,
+                    size: 24,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+  }
+}

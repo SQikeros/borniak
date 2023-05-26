@@ -1,9 +1,11 @@
-
+import 'package:borniak/feature/product/models/product_model.dart';
 import 'package:borniak/feature/product/pages/product_page.dart';
+import 'package:borniak/feature/product/widgets/catalog_products.dart';
 import 'package:flutter/material.dart';
 
 class RecommendedPage extends StatelessWidget {
-  const RecommendedPage({super.key});
+  final int index;
+  const RecommendedPage({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -13,42 +15,71 @@ class RecommendedPage extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8.0,
-                  vertical: 8.0,
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 3,
-                        blurRadius: 10,
-                        offset: const Offset(0, 3),
+                padding: const EdgeInsets.all(16),
+                child: InkWell(
+                  child: Row(
+                    children: const [
+                      Text(
+                        'Popularne przepisy',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
-                  child: Column(
-                    children: [
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    for (int i = 1; i < 8; i++)
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 14, horizontal: 12),
-                        child: InkWell(
-                          child: Row(
-                            children: const [
-                              Text(
-                                'Wiórki i zrębki wędzarnicze',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.bold
-                                ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          clipBehavior: Clip.hardEdge,
+                          width: 140,
+                          height: 240,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 3,
+                                blurRadius: 6,
+                                offset: const Offset(0, 3),
                               ),
                             ],
                           ),
+                          child: Column(
+                            children: [
+                              CatalogProductCard2(index: index),
+                            ],
+                          ),
                         ),
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: InkWell(
+                  child: Row(
+                    children: const [
+                      Text(
+                        'Wiórki i zrębki wędzarnicze',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -94,7 +125,8 @@ class RecommendedPage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: const [
                                       Text(
                                         '10,00 zł',
@@ -120,8 +152,7 @@ class RecommendedPage extends StatelessWidget {
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
-                                        fontWeight: FontWeight.bold
-                                    ),
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   const Text(
                                     'Zrębki z brzozy sprawdzają się w szczególności',
