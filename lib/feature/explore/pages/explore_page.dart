@@ -16,9 +16,9 @@ class ExplorePageBody extends State<ExplorePage> with TickerProviderStateMixin {
 
 
   TabBarView _buildTabBarView() {
-    return const TabBarView(
+    return  TabBarView(
       children: [
-        RecommendedPage(),
+        RecommendedPage(index: 2),
         ForYouPage(),
       ],
     );
@@ -52,6 +52,7 @@ class ExplorePageBody extends State<ExplorePage> with TickerProviderStateMixin {
               SliverAppBar(
                 backgroundColor: Colors.white,
                 pinned: true,
+                automaticallyImplyLeading: false,
                 floating: true,
                 snap: true,
                 expandedHeight: 250,

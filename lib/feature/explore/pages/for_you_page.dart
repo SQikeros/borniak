@@ -1,3 +1,4 @@
+import 'package:borniak/feature/product/widgets/catalog_products.dart';
 import 'package:flutter/material.dart';
 
 class ForYouPage extends StatelessWidget {
