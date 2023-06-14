@@ -1,4 +1,6 @@
 import 'package:borniak/feature/home/pages/home_page.dart';
+import 'package:borniak/feature/profile/bloc/boxes.dart';
+import 'package:borniak/feature/profile/bloc/person.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,7 +13,7 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const Text('Email'),
+        const Text('Name'),
         const SizedBox(height: 10),
         Container(
           height: 60,
@@ -27,21 +29,21 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ],
           ),
-          child: const TextField(
-            keyboardType: TextInputType.emailAddress,
+          child: TextField(
+            keyboardType: TextInputType.name,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14),
                 prefixIcon: Icon(
-                  Icons.email,
+                  Icons.person,
                   color: Colors.white,
                 ),
                 hintStyle: TextStyle(
                   color: Colors.white54,
                   fontFamily: 'OpenSans',
                 ),
-                hintText: 'Enter your Email'),
+                hintText: 'Enter your name'),
           ),
         )
       ],
@@ -148,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 25),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
@@ -176,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 8),
                     Text(
                       'Sign in with',
                       style: TextStyle(
@@ -188,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 30),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [

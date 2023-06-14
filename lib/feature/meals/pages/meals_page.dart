@@ -13,9 +13,9 @@ class MealsPage extends StatelessWidget {
   }) : super(key: key);
 
   TabBarView _buildTabBarView() {
-    return const TabBarView(
+    return TabBarView(
       children: [
-        IngredientPage(),
+        const IngredientPage(),
         RecipePage(),
       ],
     );

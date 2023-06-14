@@ -1,6 +1,7 @@
 import 'package:borniak/core/widgets/texts/texts.dart';
 import 'package:borniak/feature/Explore/pages/explore_page.dart';
 import 'package:borniak/feature/favorites/pages/favorites_page.dart';
+import 'package:borniak/feature/map/pages/distributor_map.dart';
 import 'package:borniak/feature/profile/pages/update_profile_page.dart';
 import 'package:borniak/feature/settings/privacy_settings_page.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: CustomScrollView(
         slivers: [
           const SliverAppBar(
+            automaticallyImplyLeading: false,
             backgroundColor: Colors.white,
             expandedHeight: 250,
             pinned: false,
@@ -49,12 +51,12 @@ class _ProfilePageState extends State<ProfilePage> {
                         },
                       ),
                       ListTile(
-                        title: const Text('Moje urządzenia'),
+                        title: const Text('Mapa dystrybutorów'),
                         trailing: const Icon(Icons.arrow_forward_ios),
-                        leading: const Icon(Icons.devices),
+                        leading: const Icon(Icons.location_on_outlined),
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const PrivacyPage(),
+                            builder: (context) => MapWithListScreen(),
                           ));
                         },
                       ),
